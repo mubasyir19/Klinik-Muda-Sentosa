@@ -41,10 +41,10 @@ export default function Profil() {
             />
           </div>
           <div className=''>
-            <p className='text-sm text-light-blue font-bold md:text-lg' style={workSans.style}>
+            <p className='text-sm text-secondary font-bold md:text-lg' style={workSans.style}>
               Selamat Datang di Klinik Muda Sentosa
             </p>
-            <h1 className='text-2xl text-dark-blue md:text-3xl' style={yesevaOne.style}>
+            <h1 className='text-2xl text-primary md:text-3xl' style={yesevaOne.style}>
               Sehat Berkualitas Hidup Sejahtera
             </h1>
             <div className='mt-6 text-justify' style={workSans.style}>
@@ -66,11 +66,11 @@ export default function Profil() {
           className='mt-16 py-10 px-10 grid grid-cols-1 gap-y-10 lg:grid-cols-2 lg:gap-x-10 lg:px-40 bg-cover bg-center'
           style={{
             backgroundImage:
-              "linear-gradient(to top, rgba(31, 43, 108, 0.6), rgba(31, 43, 108, 0.6)), url('/assets/images/background2.png')",
+              "linear-gradient(to top, rgba(17, 128, 135, 0.6), rgba(17, 128, 135, 0.6)), url('/assets/images/background2.png')",
           }}
         >
           <div className=''>
-            <h2 className='text-2xl text-center lg:text-4xl lg:font-semibold text-pasty-blue' style={yesevaOne.style}>
+            <h2 className='text-2xl text-center lg:text-4xl lg:font-semibold text-accent' style={yesevaOne.style}>
               Visi
             </h2>
             <p className='mt-5 text-lg text-justify md:text-xl text-white' style={workSans.style}>
@@ -79,7 +79,7 @@ export default function Profil() {
             </p>
           </div>
           <div className=''>
-            <h2 className='text-2xl text-center lg:text-4xl lg:font-semibold text-pasty-blue' style={yesevaOne.style}>
+            <h2 className='text-2xl text-center lg:text-4xl lg:font-semibold text-accent' style={yesevaOne.style}>
               Misi
             </h2>
             <ul className='mt-5 list-decimal list-inside text-justify md:text-xl text-white' style={workSans.style}>
@@ -107,10 +107,10 @@ export default function Profil() {
         </section>
         <section className='px-5' id='doktetKami'>
           <div className='mt-12 text-center'>
-            <p className='text-light-blue text-sm font-bold md:text-lg' style={workSans.style}>
+            <p className='text-secondary text-sm font-bold md:text-lg' style={workSans.style}>
               Perawatan Terpercaya
             </p>
-            <p className='text-dark-blue text-2xl font-normal md:text-4xl' style={yesevaOne.style}>
+            <p className='text-primary text-2xl font-normal md:text-4xl' style={yesevaOne.style}>
               Dokter Kami
             </p>
           </div>
@@ -127,9 +127,9 @@ export default function Profil() {
                 sizes='100vh'
                 alt='doctor'
               /> */}
-              <div className='bg-pasty-blue text-center py-6'>
-                <h1 className='text-dark-blue text-lg mb-2'>Dokter 1</h1>
-                <p className='text-dark-blue font-bold text-lg mb-2'>Dokter Gigi</p>
+              <div className='bg-accent text-center py-6'>
+                <h1 className='text-primary text-lg mb-2'>Dokter 1</h1>
+                <p className='text-primary font-bold text-lg mb-2'>Dokter Gigi</p>
                 <div className='flex justify-center gap-x-5 mt-4'>
                   <Link href='#'>
                     <Image
@@ -160,8 +160,8 @@ export default function Profil() {
                   </Link>
                 </div>
               </div>
-              <div className='bg-dark-blue text-center py-3 rounded-b-md'>
-                <Link href='#' className='text-pasty-blue'>
+              <div className='bg-primary text-center py-3 rounded-b-md'>
+                <Link href='#' className='text-accent'>
                   Lihat Profil
                 </Link>
               </div>
@@ -178,9 +178,9 @@ export default function Profil() {
                 sizes='100vh'
                 alt='doctor'
               /> */}
-              <div className='bg-pasty-blue text-center py-6'>
-                <h1 className='text-dark-blue text-lg mb-2'>Dokter 2</h1>
-                <p className='text-dark-blue font-bold text-lg mb-2'>Dokter Umum</p>
+              <div className='bg-accent text-center py-6'>
+                <h1 className='text-primary text-lg mb-2'>Dokter 2</h1>
+                <p className='text-primary font-bold text-lg mb-2'>Dokter Umum</p>
                 <div className='flex justify-center gap-x-5 mt-4'>
                   <Link href='#'>
                     <Image
@@ -211,8 +211,8 @@ export default function Profil() {
                   </Link>
                 </div>
               </div>
-              <div className='bg-dark-blue text-center py-3 rounded-b-md'>
-                <Link href='#' className='text-pasty-blue'>
+              <div className='bg-primary text-center py-3 rounded-b-md'>
+                <Link href='#' className='text-accent'>
                   Lihat Profil
                 </Link>
               </div>
@@ -226,9 +226,9 @@ export default function Profil() {
                 sizes='100vh'
                 alt='doctor'
               />
-              <div className='bg-pasty-blue text-center py-6'>
-                <h1 className='text-dark-blue text-lg mb-2'>Dokter 3</h1>
-                <p className='text-dark-blue font-bold text-lg mb-2'>Spesialis Penyakit Dalam</p>
+              <div className='bg-accent text-center py-6'>
+                <h1 className='text-primary text-lg mb-2'>Dokter 3</h1>
+                <p className='text-primary font-bold text-lg mb-2'>Spesialis Penyakit Dalam</p>
                 <div className='flex justify-center gap-x-5 mt-4'>
                   <Link href='#'>
                     <Image
@@ -259,8 +259,8 @@ export default function Profil() {
                   </Link>
                 </div>
               </div>
-              <div className='bg-dark-blue text-center py-3 rounded-b-md'>
-                <Link href='#' className='text-pasty-blue'>
+              <div className='bg-primary text-center py-3 rounded-b-md'>
+                <Link href='#' className='text-accent'>
                   Lihat Profil
                 </Link>
               </div>
