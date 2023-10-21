@@ -1,0 +1,19 @@
+{
+  "quests": [
+    {
+      "id": 1,
+      "title": "Penyebab sering merasa pusing dan mual tapi tidak bisa muntah",
+      "question": "Saya mau tanya dok. Kenapa ya udah 2 hari ini saya merasa pusing dan terasa mual tapi nggak bisa muntah dok. Kira2 kenapa ya dok? saya harus minum apa biar cepat sembuh dok. makasih"
+    },
+    {
+      "id": 2,
+      "title": "Penyebab dan cara mengobati penyakit jantung bocor selain operasi",
+      "question": "Sore dok, setahun yang lalu saya di diagnosa penyakit jantung bocor, tapi sampai sekarang saya belum tahu apa penyebabnya.. Sebenarnya dokter menyarankan untuk operasi, tapi saya belum operasi sampai sekarang dok.. kalau capek dada saya terasa nyeri dok.. bagaimana cara mengatasinya ya dok?"
+    },
+    {
+      "id": 3,
+      "title": "Penyebab sakit kepala sebelah kanan atas saat menunduk",
+      "question": "saya mau tanya dok, akhir2 ini kepala sebelah kanan bagian atas sering terasa sakit. Tapi rasa sakitnya hanya berlangsung 1-3 ment saja. Hal ini sudah berlangsung selama kurang lebih 3 minggu. Biasanya sakit kepala ini muncul saat sedang menunduk. Kira2 diagnosa sakit kepala saya ini apa ya dok? terima kasih"
+    }
+  ]
+}
