@@ -1,7 +1,8 @@
+'use client';
 import { Components } from '@/components';
 import { Work_Sans, Yeseva_One } from 'next/font/google';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 // import QuestData from '../../data/question.json';
 import Image from 'next/image';
@@ -20,10 +21,10 @@ const workSans = Work_Sans({
 
 export default function QuestPage({ question }) {
   const router = useRouter();
-  const { quest } = router.query;
+  //   const { quest } = router.query;
   // const { quests } = QuestData;
-  console.log('Question =>', quest);
-  console.log('quests =>', quests);
+  //   console.log('Question =>', quest);
+  // console.log('quests =>', quests);
 
   return (
     <>
@@ -34,7 +35,7 @@ export default function QuestPage({ question }) {
           <Link href='/'>Beranda</Link> / <Link href='/konsultasi'>Konsultasi</Link> / test
         </span>
       </Components.Header>
-      <main>
+      <main style={workSans.style}>
         <section className='px-6 lg:w-[1024px] mx-auto'>
           <div className='mt-10'>
             <Link href='/konsultasi' className='flex gap-x-3'>
