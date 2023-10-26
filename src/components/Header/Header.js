@@ -37,7 +37,6 @@ export default function Header({ withLink, headTitle, children }) {
         <h1 className='text-white text-2xl mb-8 md:text-4xl lg:text-5xl' style={yesevaOne.style}>
           {headTitle}
         </h1>
-        <p>{pathname}</p>
         {withLink && (
           <Link href='#layanan' className='py-3 px-9 text-base text-primary font-medium bg-accent rounded-full'>
             Layanan Kami

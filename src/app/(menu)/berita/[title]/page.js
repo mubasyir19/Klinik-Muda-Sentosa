@@ -1,8 +1,10 @@
+'use client';
+
 import { Components } from '@/components';
 import { Work_Sans, Yeseva_One } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useParams, usePathname, useRouter, useSelectedLayoutSegment } from 'next/navigation';
 import React from 'react';
 
 const yesevaOne = Yeseva_One({
@@ -17,37 +19,32 @@ const workSans = Work_Sans({
   subsets: ['latin'],
 });
 
-export default function ArtikelPage({ artikel }) {
-  const router = useRouter();
-  const { title } = router.query;
+export default function ArtikelPage() {
+  const params = useParams();
+  const paramsTitle = params.title;
+  const decodeTitle = decodeURIComponent(paramsTitle).replace(/-/g, ' ');
+  // console.log('params:', params);
+  // console.log('params title:', params.title);
+
+  function toTitleCase(text) {
+    return text
+      .toLowerCase()
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  }
+
+  const title = toTitleCase(decodeTitle);
 
   return (
     <>
       <Components.Topmost />
       <Components.Navbar />
-      <Components.Header withLink={false} headTitle='Bakti Sosial Kesehatan'>
+      <Components.Header withLink={false} headTitle={title}>
         <span>
           <Link href='/'>Beranda</Link> / <Link href='/berita'>Berita</Link> / {title}
         </span>
       </Components.Header>
-      <header
-        className='h-64 bg-cover bg-center bg-no-repeat flex justify-center items-center text-center lg:px-32 lg:items-center lg:text-start lg:grid lg:grid-cols-2'
-        style={{
-          backgroundImage:
-            "linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/background.jpg')",
-        }}
-      >
-        <div className=''>
-          <p className='text-light-blue text-sm font-bold md:text-base lg:text-lg' style={workSans.style}>
-            <Link href='/'>Beranda</Link> / <Link href='/berita'>Berita</Link> / {title}
-          </p>
-          <h1 className='text-white text-2xl mb-8 md:text-4xl lg:text-5xl' style={yesevaOne.style}>
-            {/* {artikel.judul} */}
-            Bakti Sosial Kesehatan
-          </h1>
-        </div>
-        <div></div>
-      </header>
       <main>
         <section className='grid grid-cols-1 md:grid-cols-3 md:gap-x-6 lg:gap-x-20 md:px-6 lg:px-44'>
           <div className='left px-10 md:px-0 col-span-2'>
