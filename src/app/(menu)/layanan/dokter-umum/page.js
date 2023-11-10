@@ -46,7 +46,7 @@ export default function DokterUmum() {
           <div className='hidden md:block md:mb-6'>
             <Image
               className='object-cover object-center rounded-xl md:w-full lg:w-[408px] lg:h-[509px]'
-              src='/assets/images/opening.jpg'
+              src='/assets/images/gcu.jpg'
               width={408}
               height={509}
               alt='photo'

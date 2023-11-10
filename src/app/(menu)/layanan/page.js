@@ -55,7 +55,7 @@ export default function Layanan() {
             <div className='relative' onMouseEnter={mouseEnterCard1} onMouseLeave={mouseLeaveCard1}>
               <Image
                 className='object-cover object-left rounded-xl md:w-full lg:w-[500px] lg:h-[400px]'
-                src='/assets/images/sanlat.jpg'
+                src='/assets/images/cek-gigi.jpg'
                 width={500}
                 height={400}
                 alt='photo'
@@ -85,7 +85,7 @@ export default function Layanan() {
             <div className='relative' onMouseEnter={mouseEnterCard2} onMouseLeave={mouseLeaveCard2}>
               <Image
                 className='object-cover object-right rounded-xl md:w-full lg:w-[500px] lg:h-[400px]'
-                src='/assets/images/opening.jpg'
+                src='/assets/images/gcu.jpg'
                 width={500}
                 height={400}
                 alt='photo'
