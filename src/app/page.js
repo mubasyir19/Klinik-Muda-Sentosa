@@ -88,8 +88,8 @@ export default function Home() {
           >
             <SwiperSlide>
               <Image
-                className='w-full h-72 object-cover object-center'
-                src='/assets/images/profil.jpg'
+                className='w-full h-72 object-cover'
+                src='/assets/images/cek-gigi.jpg'
                 sizes='100vw'
                 width={375}
                 height={150}
@@ -98,8 +98,8 @@ export default function Home() {
             </SwiperSlide>
             <SwiperSlide>
               <Image
-                className='w-full h-72 object-cover object-center'
-                src='/assets/images/bazar.jpg'
+                className='w-full h-72 object-cover'
+                src='/assets/images/cek-gigi2.jpg'
                 sizes='100vw'
                 width={375}
                 height={150}
@@ -108,8 +108,8 @@ export default function Home() {
             </SwiperSlide>
             <SwiperSlide>
               <Image
-                className='w-full h-72 object-cover object-top'
-                src='/assets/images/fotbar-santunan.jpg'
+                className='w-full h-72 object-cover'
+                src='/assets/images/gcu2.jpg'
                 sizes='100vw'
                 width={375}
                 height={150}
@@ -118,7 +118,7 @@ export default function Home() {
             </SwiperSlide>
           </Swiper>
           {/* <Image
-            className='w-full h-72 object-cover object-center'
+            className='w-full h-72 object-cover'
             src='/assets/images/Home-Karmus.jpg'
             sizes='100vw'
             width={375}
