@@ -20,8 +20,8 @@ const workSans = Work_Sans({
 export default function Konsultasi() {
   const { quests } = QuestData;
   // console.log(quests);
-  // const ask = quests.question;
-  // console.log('Tanya =>', ask);
+  const ask = quests.question;
+  console.log('Tanya =>', ask);
 
   return (
     <>
