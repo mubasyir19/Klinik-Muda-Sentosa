@@ -34,7 +34,7 @@ export default function Profil() {
           <div className='hidden md:block md:mb-6'>
             <Image
               className='object-cover object-right rounded-xl md:w-full lg:w-[408px] lg:h-[509px]'
-              src='/assets/images/profil.jpg'
+              src='/assets/images/regist-gcu.jpg'
               width={408}
               height={509}
               alt='photo'

@@ -34,9 +34,9 @@ export default function Kontak() {
             // height='450'
             // style={{ border: 0 }}
             // style='border:0;'
-            allowfullscreen=''
+            allowFullScreen=''
             loading='lazy'
-            referrerpolicy='no-referrer-when-downgrade'
+            referrerPolicy='no-referrer-when-downgrade'
           ></iframe>
         </section>
         <section className='px-10 lg:px-44 grid grid-cols-1 md:grid-cols-2 md:gap-x-6 lg:gap-x-8 lg:items-center'>
