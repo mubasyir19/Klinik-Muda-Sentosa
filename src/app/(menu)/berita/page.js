@@ -1,9 +1,12 @@
+'use client';
+
 import { Components } from '@/components';
 import { Work_Sans, Yeseva_One } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ArticleData from '@/data/article.json';
+import axios from 'axios';
 
 const yesevaOne = Yeseva_One({
   weight: ['400'],
@@ -17,8 +20,51 @@ const workSans = Work_Sans({
   subsets: ['latin'],
 });
 
+const ROOT_API = process.env.NEXT_API_LOCAL || 'http://localhost:5000/api';
+const ROOT_IMG = process.env.NEXT_API_IMAGE || 'http://localhost:5000';
+
 export default function Berita() {
-  const { articles } = ArticleData;
+  const [articles, setArticles] = useState([]);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchDataArticle = async () => {
+      try {
+        const response = await axios.get(`${ROOT_API}/article`);
+        // console.log(response.data);
+        setArticles(response.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const fetchDataCategories = async () => {
+      try {
+        const response = await axios.get(`${ROOT_API}/category`);
+        // console.log(response.data);
+        setCategories(response.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchDataArticle();
+    fetchDataCategories();
+  }, []);
+
+  function formatCreatedAt(createdAt) {
+    const date = new Date(createdAt);
+
+    const options = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    };
+
+    const formattedDate = new Intl.DateTimeFormat('id-ID', options).format(date);
+
+    return formattedDate;
+  }
 
   const limitContent = (title, limit) => {
     const words = title.split(' ');
@@ -50,7 +96,7 @@ export default function Berita() {
                     <Image
                       className='w-full h-auto md:h-auto'
                       // src='/assets/images/fotbar-santunan.jpg'
-                      src={article.image}
+                      src={`http://localhost:3000/${article.image}`}
                       width={660}
                       height={400}
                       // sizes='100vw'
@@ -122,7 +168,7 @@ export default function Berita() {
                               strokeLinejoin='round'
                             />
                           </svg>
-                          <p className='text-sm my-auto'>By Author</p>
+                          <p className='text-sm my-auto'>By {article.account.name}</p>
                         </div>
                         <div className='views flex gap-x-2'>
                           <svg
@@ -171,9 +217,14 @@ export default function Berita() {
                       <h1 className='text-xl lg:text-3xl' style={yesevaOne.style}>
                         {article.title}
                       </h1>
-                      <p className='mt-4 text-justify text-base' style={workSans.style}>
+                      <div
+                        className='mt-4 text-justify text-base'
+                        style={workSans.style}
+                        dangerouslySetInnerHTML={{ __html: limitContent(article.content, 50) }}
+                      />
+                      {/* <p className='mt-4 text-justify text-base' style={workSans.style}>
                         {limitContent(article.content, 50)}
-                      </p>
+                      </p> */}
                     </div>
                     <Link
                       href={`/berita/${article.title.toLowerCase().replace(/ /g, '-')}`}
@@ -237,7 +288,23 @@ export default function Berita() {
                 Recent Posts
               </h3>
               <div className='mb-6'>
-                <div className='card-news mt-6 flex md:block lg:flex gap-x-2.5'>
+                {articles.slice(0, 2).map((article) => (
+                  <div key={article.id} className='card-news mt-6 flex md:block lg:flex gap-x-2.5'>
+                    <Image
+                      className='rounded-md h-20 w-20 my-auto'
+                      src={'/assets/images/doctor3.png'}
+                      width={60}
+                      height={60}
+                      // sizes=''
+                      alt='image-post'
+                    />
+                    <div className='mt-2 lg:my-auto' style={workSans.style}>
+                      <p className='text-secondary text-xs md:text-sm'>{formatCreatedAt(article.createdAt)}</p>
+                      <p className='mt-1 text-sm md:text-base font-semibold'>{article.title}</p>
+                    </div>
+                  </div>
+                ))}
+                {/* <div className='card-news mt-6 flex md:block lg:flex gap-x-2.5'>
                   <Image
                     className='rounded-md h-20 w-20 my-auto'
                     src={'/assets/images/doctor3.png'}
@@ -252,23 +319,7 @@ export default function Berita() {
                       This Article’s Title goes Here, but not too long.
                     </p>
                   </div>
-                </div>
-                <div className='card-news mt-6 flex md:block lg:flex gap-x-2.5'>
-                  <Image
-                    className='rounded-md h-20 w-20 my-auto'
-                    src={'/assets/images/doctor3.png'}
-                    width={60}
-                    height={60}
-                    // sizes=''
-                    alt='image-post'
-                  />
-                  <div className='mt-2 lg:my-auto' style={workSans.style}>
-                    <p className='text-secondary text-xs md:text-sm'>Senin, 5 September 2023</p>
-                    <p className='mt-1 text-sm md:text-base font-semibold'>
-                      This Article’s Title goes Here, but not too long.
-                    </p>
-                  </div>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className='mt-4 px-4 border-2 border-slate-300 rounded-md'>
@@ -276,15 +327,17 @@ export default function Berita() {
                 Kategori
               </h3>
               <div className='my-6' style={workSans.style}>
-                <div className='w-full px-4 py-2'>
-                  <Link href='#' className='flex justify-between cursor-pointer'>
-                    <span className='my-auto text-base lg:text-lg'>Event</span>
-                    <span className='py-1 px-3 my-auto text-sm lg:text-base text-white bg-secondary rounded-full'>
-                      5
-                    </span>
-                  </Link>
-                </div>
-                <div className='w-full px-4 py-2'>
+                {categories.map((category) => (
+                  <div key={category.id} className='w-full px-4 py-2'>
+                    <Link href='#' className='flex justify-between cursor-pointer'>
+                      <span className='my-auto text-base lg:text-lg'>{category.name}</span>
+                      <span className='py-1 px-3 my-auto text-sm lg:text-base text-white bg-secondary rounded-full'>
+                        {categories.length}
+                      </span>
+                    </Link>
+                  </div>
+                ))}
+                {/* <div className='w-full px-4 py-2'>
                   <Link href='#' className='flex justify-between cursor-pointer'>
                     <span className='my-auto text-base lg:text-lg'>Artikel</span>
                     <span className='py-1 px-3 my-auto text-sm lg:text-base text-white bg-secondary rounded-full'>
@@ -299,7 +352,7 @@ export default function Berita() {
                       3
                     </span>
                   </Link>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
