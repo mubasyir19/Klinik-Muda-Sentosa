@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ROOT_API = process.env.NEXT_API_LOCAL || 'http://localhost:5000/api';
+const ROOT_API = process.env.NEXT_PUBLIC_API;
 
 export async function getDataArticle() {
   const fetchDataArticles = await axios.get(`${ROOT_API}/article`, { next: { revalidate: 5 } });
