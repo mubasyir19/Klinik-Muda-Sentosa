@@ -1,12 +1,8 @@
-'use client';
-
 import { Components } from '@/components';
 import { Work_Sans, Yeseva_One } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import ArticleData from '@/data/article.json';
-import axios from 'axios';
+import { getDataArticle, getDataCategories } from '@/services/data';
 
 const yesevaOne = Yeseva_One({
   weight: ['400'],
@@ -20,37 +16,9 @@ const workSans = Work_Sans({
   subsets: ['latin'],
 });
 
-const ROOT_API = process.env.NEXT_API_LOCAL || 'http://localhost:5000/api';
-const ROOT_IMG = process.env.NEXT_API_IMAGE || 'http://localhost:5000';
-
-export default function Berita() {
-  const [articles, setArticles] = useState([]);
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    const fetchDataArticle = async () => {
-      try {
-        const response = await axios.get(`${ROOT_API}/article`);
-        // console.log(response.data);
-        setArticles(response.data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    const fetchDataCategories = async () => {
-      try {
-        const response = await axios.get(`${ROOT_API}/category`);
-        // console.log(response.data);
-        setCategories(response.data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchDataArticle();
-    fetchDataCategories();
-  }, []);
+export default async function Berita() {
+  const articles = await getDataArticle();
+  const categories = await getDataCategories();
 
   function formatCreatedAt(createdAt) {
     const date = new Date(createdAt);
@@ -103,46 +71,6 @@ export default function Berita() {
                       alt='card news'
                     />
                     <div className='my-2 mx-4 flex flex-col'>
-                      {/* <div className='Date flex gap-x-2'>
-                      <svg
-                        className='my-auto'
-                        width='18'
-                        height='20'
-                        viewBox='0 0 18 20'
-                        fill='none'
-                        xmlns='http://www.w3.org/2000/svg'
-                      >
-                        <path
-                          d='M15.2222 2.77783H2.77778C1.79594 2.77783 1 3.57377 1 4.55561V17.0001C1 17.9819 1.79594 18.7778 2.77778 18.7778H15.2222C16.2041 18.7778 17 17.9819 17 17.0001V4.55561C17 3.57377 16.2041 2.77783 15.2222 2.77783Z'
-                          stroke='#1F2B6C'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                        />
-                        <path
-                          d='M12.5557 1V4.55556'
-                          stroke='#1F2B6C'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                        />
-                        <path
-                          d='M5.44434 1V4.55556'
-                          stroke='#1F2B6C'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                        />
-                        <path
-                          d='M1 8.11108H17'
-                          stroke='#1F2B6C'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                        />
-                      </svg>
-                      <p>Senin, 5 September 2023</p>
-                    </div> */}
                       <div className='flex gap-x-4 mt-2' style={workSans.style}>
                         <div className='write flex gap-x-2'>
                           <svg
@@ -220,11 +148,11 @@ export default function Berita() {
                       <div
                         className='mt-4 text-justify text-base'
                         style={workSans.style}
-                        dangerouslySetInnerHTML={{ __html: limitContent(article.content, 50) }}
+                        // dangerouslySetInnerHTML={{ __html: limitContent(article.content, 50) }}
                       />
-                      {/* <p className='mt-4 text-justify text-base' style={workSans.style}>
+                      <p className='mt-4 text-justify text-base' style={workSans.style}>
                         {limitContent(article.content, 50)}
-                      </p> */}
+                      </p>
                     </div>
                     <Link
                       href={`/berita/${article.title.toLowerCase().replace(/ /g, '-')}`}
