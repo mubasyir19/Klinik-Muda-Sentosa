@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Work_Sans } from 'next/font/google';
 import useSWR from 'swr';
 import { fetcherSWR } from '@/helper/fetcher';
+import parse from 'html-react-parser';
 
 const workSans = Work_Sans({
   weight: ['300', '400', '500', '600', '700'],
