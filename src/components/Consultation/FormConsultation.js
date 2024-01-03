@@ -17,7 +17,7 @@ const workSans = Work_Sans({
   subsets: ['latin'],
 });
 
-const ROOT_API = process.env.NEXT_API_PUBLIC || 'http://localhost:5000/api';
+const ROOT_API = process.env.PUBLIC_API;
 
 export default function FormConsultation() {
   const [formData, setFormData] = useState({
@@ -37,7 +37,7 @@ export default function FormConsultation() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`${ROOT_API}/consultation`, formData);
+      const response = await axios.post(`${ROOT_API}/api/consultation`, formData);
       if (response.status === 200) {
         Swal.fire({
           title: 'Berhasil',

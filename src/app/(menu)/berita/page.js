@@ -1,8 +1,11 @@
+'use client';
+
 import { Components } from '@/components';
 import { Work_Sans, Yeseva_One } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getDataArticle, getDataCategories } from '@/services/data';
+import { useEffect, useState } from 'react';
 
 const yesevaOne = Yeseva_One({
   weight: ['400'],
@@ -16,9 +19,31 @@ const workSans = Work_Sans({
   subsets: ['latin'],
 });
 
-export default async function Berita() {
-  const articles = await getDataArticle();
-  const categories = await getDataCategories();
+export default function Berita() {
+  const [articles, setArticles] = useState([]);
+  const [categories, setCategories] = useState([]);
+
+  const getData = async () => {
+    try {
+      const articleData = await getDataArticle();
+      const categoryData = await getDataCategories();
+      setArticles(articleData);
+      setCategories(categoryData);
+    } catch (error) {
+      return (
+        <>
+          <p>Terjadi kesalahan</p>
+        </>
+      );
+      console.log('Error => ', error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+  // const articles = await getDataArticle();
+  // const categories = await getDataCategories();
 
   function formatCreatedAt(createdAt) {
     const date = new Date(createdAt);
@@ -212,7 +237,7 @@ export default async function Berita() {
               </svg>
             </div>
             <div className='mt-4 px-4 border-2 border-slate-300'>
-              <h3 className='mt-4 text-center lg:text-start text-xl lg:text-4xl' style={yesevaOne.style}>
+              <h3 className='mt-4 text-center lg:text-start text-xl lg:text-3xl' style={yesevaOne.style}>
                 Recent Posts
               </h3>
               <div className='mb-6'>
@@ -251,7 +276,7 @@ export default async function Berita() {
               </div>
             </div>
             <div className='mt-4 px-4 border-2 border-slate-300 rounded-md'>
-              <h3 className='mt-4 text-center text-primary lg:text-start text-xl lg:text-4xl' style={yesevaOne.style}>
+              <h3 className='mt-4 text-center text-primary lg:text-start text-xl lg:text-3xl' style={yesevaOne.style}>
                 Kategori
               </h3>
               <div className='my-6' style={workSans.style}>
