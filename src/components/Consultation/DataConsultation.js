@@ -15,10 +15,8 @@ const workSans = Work_Sans({
   subsets: ['latin'],
 });
 
-const ROOT_API = process.env.NEXT_PUBLIC_API;
-
 export default function DataConsultation() {
-  const { data, isLoading, error } = useSWR(`${ROOT_API}/api/consultation`, fetcherSWR);
+  const { data, isLoading, error } = useSWR(`/api/consultation`, fetcherSWR);
 
   return (
     <div>

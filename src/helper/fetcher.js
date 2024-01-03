@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const fetcherInstance = () => {
   const instance = axios.create({
-    baseURL: 'http://api-klinik.mahdy-mubasyir.my.id/api',
+    baseURL: process.env.NEXT_PUBLIC_API,
   });
 
   return instance;
