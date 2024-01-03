@@ -4,7 +4,6 @@ import { Work_Sans, Yeseva_One } from 'next/font/google';
 import Link from 'next/link';
 import { notFound, useParams, useRouter } from 'next/navigation';
 import React from 'react';
-// import QuestData from '../../data/question.json';
 import Image from 'next/image';
 import useSWR from 'swr';
 import { fetcherSWR } from '@/helper/fetcher';
