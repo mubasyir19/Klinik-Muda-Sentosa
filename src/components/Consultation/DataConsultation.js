@@ -18,9 +18,13 @@ export default function DataConsultation() {
   return (
     <div>
       {error ? (
-        'Terjadi Error'
+        <div className='flex justify-center my-4' style={workSans.style}>
+          <p className='text-2xl font-semibold'>Terjadi Error</p>
+        </div>
       ) : isLoading ? (
-        'Loading...'
+        <div className='flex justify-center my-4' style={workSans.style}>
+          <p className='text-2xl font-semibold'>Loading...</p>
+        </div>
       ) : data.length > 0 ? (
         <div>
           {data
