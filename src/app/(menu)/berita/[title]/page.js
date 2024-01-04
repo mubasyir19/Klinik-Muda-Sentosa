@@ -150,7 +150,7 @@ export default function ArtikelPage() {
                 <div className='w-full px-4 py-2 bg-dark-blue text-pasty-blue rounded-md'>
                   <Link href='#' className='flex justify-between cursor-pointer'>
                     <span className='my-auto text-base lg:text-lg'>Event</span>
-                    <span className='py-1 px-3 my-auto text-sm lg:text-base text-white bg-light-blue rounded-full'>
+                    <span className='py-1 px-3 my-auto text-sm lg:text-base text-white bg-secondary rounded-full'>
                       5
                     </span>
                   </Link>
@@ -158,7 +158,7 @@ export default function ArtikelPage() {
                 <div className='w-full px-4 py-2'>
                   <Link href='#' className='flex justify-between cursor-pointer'>
                     <span className='my-auto text-base lg:text-lg'>Artikel</span>
-                    <span className='py-1 px-3 my-auto text-sm lg:text-base text-white bg-light-blue rounded-full'>
+                    <span className='py-1 px-3 my-auto text-sm lg:text-base text-white bg-secondary rounded-full'>
                       13
                     </span>
                   </Link>
@@ -166,7 +166,7 @@ export default function ArtikelPage() {
                 <div className='w-full px-4 py-2'>
                   <Link href='#' className='flex justify-between cursor-pointer'>
                     <span className='my-auto text-base lg:text-lg'>Health Care</span>
-                    <span className='py-1 px-3 my-auto text-sm lg:text-base text-white bg-light-blue rounded-full'>
+                    <span className='py-1 px-3 my-auto text-sm lg:text-base text-white bg-secondary rounded-full'>
                       3
                     </span>
                   </Link>
