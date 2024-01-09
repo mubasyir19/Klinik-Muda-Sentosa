@@ -80,7 +80,7 @@ export default function Berita() {
         {/* <h1 className='text-dark-blue text-center text-5xl font-bold my-16' style={yesevaOne.style}>
           Coming Soon
         </h1> */}
-        <section className='grid grid-cols-1 md:grid-cols-3 md:gap-x-6 lg:gap-x-20 md:px-6 lg:px-44'>
+        <section className='grid grid-cols-1 md:grid-cols-3 md:gap-x-6 lg:gap-x-20 md:px-6 lg:lg:px-20 xl:px-44'>
           <div className='left px-10 md:px-0 col-span-2'>
             {articles.length > 0 ? (
               <div>
@@ -257,9 +257,9 @@ export default function Berita() {
                     </div>
                   </div>
                 ))}
-                {/* <div className='card-news mt-6 flex md:block lg:flex gap-x-2.5'>
+                <div className='card-news mt-6 flex md:block lg:flex gap-x-2.5'>
                   <Image
-                    className='rounded-md h-20 w-20 my-auto'
+                    className='rounded-md h-20 w-20 my-auto lg:hidden xl:block'
                     src={'/assets/images/doctor3.png'}
                     width={60}
                     height={60}
@@ -269,10 +269,10 @@ export default function Berita() {
                   <div className='mt-2 lg:my-auto' style={workSans.style}>
                     <p className='text-secondary text-xs md:text-sm'>Senin, 5 September 2023</p>
                     <p className='mt-1 text-sm md:text-base font-semibold'>
-                      This Article’s Title goes Here, but not too long.
+                      This Article&apos;s Title goes Here, but not too long.
                     </p>
                   </div>
-                </div> */}
+                </div>
               </div>
             </div>
             <div className='mt-4 px-4 border-2 border-slate-300 rounded-md'>
@@ -281,7 +281,7 @@ export default function Berita() {
               </h3>
               <div className='my-6' style={workSans.style}>
                 {categories.map((category) => (
-                  <div key={category.id} className='w-full px-4 py-2'>
+                  <div key={category.id} className='w-full py-2'>
                     <Link href='#' className='flex justify-between cursor-pointer'>
                       <span className='my-auto text-base lg:text-lg'>{category.name}</span>
                       <span className='py-1 px-3 my-auto text-sm lg:text-base text-white bg-secondary rounded-full'>

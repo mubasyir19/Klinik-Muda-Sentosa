@@ -34,7 +34,7 @@ export default function Header({ withLink, headTitle, children }) {
         <div className='text-secondary text-sm font-bold md:text-base lg:text-lg' style={workSans.style}>
           {children}
         </div>
-        <h1 className='text-white text-2xl mb-8 md:text-4xl lg:text-5xl' style={yesevaOne.style}>
+        <h1 className='text-white text-2xl mb-8 md:text-3xl lg:text-4xl xl:text-5xl' style={yesevaOne.style}>
           {headTitle}
         </h1>
         {withLink && (
