@@ -29,7 +29,7 @@ export default function DokterGigi() {
       <main>
         <section
           id='welcome'
-          className='mt-16 px-5 md:px-20 lg:px-32 grid grid-cols-1 lg:grid-cols-2 place-items-center'
+          className='mt-16 px-5 md:px-20 lg:px-32 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-10 place-items-center'
         >
           <div className='hidden md:block md:mb-6'>
             <Image

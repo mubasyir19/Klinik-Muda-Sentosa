@@ -23,11 +23,14 @@ export default function Berita() {
       <Components.Navbar />
       <Components.Header withLink={false} headTitle='Dokter Kami'>
         <span>
-          <Link href='/'>Beranda</Link> / Dokter
+          <Link className='' href='/'>
+            Beranda
+          </Link>{' '}
+          / Dokter
         </span>
       </Components.Header>
       <main className='mt-10'>
-        <section className='grid grid-cols-1 md:grid-cols-2 md:gap-x-10 place-items-center md:px-6 lg:px-64'>
+        <section className='grid grid-cols-1 md:grid-cols-2 md:gap-x-10 place-items-center md:px-6 xl:px-64'>
           <div className='card w-317 mt-10' style={workSans.style}>
             <div className='w-[317px] h-[350px] bg-slate-300 flex justify-center items-center'>
               <h1 className='text-3xl'>Foto Dokter</h1>
@@ -131,198 +134,6 @@ export default function Berita() {
               </Link>
             </div>
           </div>
-          {/* <div className='card w-317 mt-10'>
-            <Image
-              src='/assets/images/doctor3.png'
-              style={{ width: '317px', height: '350px' }}
-              width={317}
-              height={350}
-              sizes='100vh'
-              alt='doctor'
-            />
-            <div className='bg-accent text-center py-6'>
-              <h1 className='text-black text-lg mb-2'>Dokter 3</h1>
-              <p className='text-black font-bold text-lg mb-2'>Spesialis Penyakit Dalam</p>
-              <div className='flex justify-center gap-x-5 mt-4'>
-                <Link href='#'>
-                  <Image
-                    src='/assets/images/linkedIn-dark.png'
-                    className='cursor-pointer'
-                    width={24}
-                    height={24}
-                    alt='linkedIn'
-                  />
-                </Link>
-                <Link href='#'>
-                  <Image
-                    src='/assets/images/facebook-dark.png'
-                    className='cursor-pointer'
-                    width={24}
-                    height={24}
-                    alt='facebook'
-                  />
-                </Link>
-                <Link href='#'>
-                  <Image
-                    src='/assets/images/instagram-dark.png'
-                    className='cursor-pointer'
-                    width={24}
-                    height={24}
-                    alt='instagram'
-                  />
-                </Link>
-              </div>
-            </div>
-            <div className='bg-primary text-center py-3 rounded-b-md'>
-              <Link href='#' className='text-white'>
-                Lihat Profil
-              </Link>
-            </div>
-          </div>
-          <div className='card w-317 mt-10'>
-            <Image
-              src='/assets/images/doctor1.png'
-              style={{ width: '317px', height: '350px' }}
-              width={317}
-              height={350}
-              sizes='100vh'
-              alt='doctor'
-            />
-            <div className='bg-accent text-center py-6'>
-              <h1 className='text-black text-lg mb-2'>Dokter 1</h1>
-              <p className='text-black font-bold text-lg mb-2'>Dokter Anak</p>
-              <div className='flex justify-center gap-x-5 mt-4'>
-                <Link href='#'>
-                  <Image
-                    src='/assets/images/linkedIn-dark.png'
-                    className='cursor-pointer'
-                    width={24}
-                    height={24}
-                    alt='linkedIn'
-                  />
-                </Link>
-                <Link href='#'>
-                  <Image
-                    src='/assets/images/facebook-dark.png'
-                    className='cursor-pointer'
-                    width={24}
-                    height={24}
-                    alt='facebook'
-                  />
-                </Link>
-                <Link href='#'>
-                  <Image
-                    src='/assets/images/instagram-dark.png'
-                    className='cursor-pointer'
-                    width={24}
-                    height={24}
-                    alt='instagram'
-                  />
-                </Link>
-              </div>
-            </div>
-            <div className='bg-primary text-center py-3 rounded-b-md'>
-              <Link href='#' className='text-white'>
-                Lihat Profil
-              </Link>
-            </div>
-          </div>
-          <div className='card w-317 mt-10'>
-            <Image
-              src='/assets/images/doctor2.png'
-              style={{ width: '317px', height: '350px' }}
-              width={317}
-              height={350}
-              sizes='100vh'
-              alt='doctor'
-            />
-            <div className='bg-accent text-center py-6'>
-              <h1 className='text-black text-lg mb-2'>Dokter 2</h1>
-              <p className='text-black font-bold text-lg mb-2'>Dokter Umum</p>
-              <div className='flex justify-center gap-x-5 mt-4'>
-                <Link href='#'>
-                  <Image
-                    src='/assets/images/linkedIn-dark.png'
-                    className='cursor-pointer'
-                    width={24}
-                    height={24}
-                    alt='linkedIn'
-                  />
-                </Link>
-                <Link href='#'>
-                  <Image
-                    src='/assets/images/facebook-dark.png'
-                    className='cursor-pointer'
-                    width={24}
-                    height={24}
-                    alt='facebook'
-                  />
-                </Link>
-                <Link href='#'>
-                  <Image
-                    src='/assets/images/instagram-dark.png'
-                    className='cursor-pointer'
-                    width={24}
-                    height={24}
-                    alt='instagram'
-                  />
-                </Link>
-              </div>
-            </div>
-            <div className='bg-primary text-center py-3 rounded-b-md'>
-              <Link href='#' className='text-white'>
-                Lihat Profil
-              </Link>
-            </div>
-          </div>
-          <div className='card w-317 mt-10'>
-            <Image
-              src='/assets/images/doctor3.png'
-              style={{ width: '317px', height: '350px' }}
-              width={317}
-              height={350}
-              sizes='100vh'
-              alt='doctor'
-            />
-            <div className='bg-accent text-center py-6'>
-              <h1 className='text-black text-lg mb-2'>Dokter 3</h1>
-              <p className='text-black font-bold text-lg mb-2'>Spesialis Penyakit Dalam</p>
-              <div className='flex justify-center gap-x-5 mt-4'>
-                <Link href='#'>
-                  <Image
-                    src='/assets/images/linkedIn-dark.png'
-                    className='cursor-pointer'
-                    width={24}
-                    height={24}
-                    alt='linkedIn'
-                  />
-                </Link>
-                <Link href='#'>
-                  <Image
-                    src='/assets/images/facebook-dark.png'
-                    className='cursor-pointer'
-                    width={24}
-                    height={24}
-                    alt='facebook'
-                  />
-                </Link>
-                <Link href='#'>
-                  <Image
-                    src='/assets/images/instagram-dark.png'
-                    className='cursor-pointer'
-                    width={24}
-                    height={24}
-                    alt='instagram'
-                  />
-                </Link>
-              </div>
-            </div>
-            <div className='bg-primary text-center py-3 rounded-b-md'>
-              <Link href='#' className='text-white'>
-                Lihat Profil
-              </Link>
-            </div>
-          </div> */}
         </section>
         <section
           className='mt-16 py-16 px-10 bg-cover bg-center'

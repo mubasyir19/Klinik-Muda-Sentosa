@@ -87,7 +87,7 @@ export default function ServiceTab() {
               {/* <div className='w-auto md:w-[324px] h-[231px] bg-slate-300'></div> */}
               {/* <div className='w-auto md:w-[324px] h-[231px] bg-slate-300'></div> */}
               <Image src='/assets/images/cek-gigi.jpg' width={324} height={231} alt='patient' />
-              <Image src='/assets/images/cek-gigi2.jpg' width={324} height={231} alt='patient' />
+              <Image src='/assets/images/cek-gigi-dewasa.jpg' width={324} height={231} alt='patient' />
             </div>
           </>
         )}
@@ -104,7 +104,7 @@ export default function ServiceTab() {
               {/* <div className='w-[324px] h-[231px] bg-slate-300'></div> */}
               {/* <div className='w-[324px] h-[231px] bg-slate-300'></div> */}
               <Image src='/assets/images/gcu.jpg' width={324} height={231} alt='patient' />
-              <Image src='/assets/images/gcu2.jpg' width={324} height={231} alt='patient' />
+              <Image src='/assets/images/gcu-2.jpg' width={324} height={231} alt='patient' />
             </div>
           </>
         )}

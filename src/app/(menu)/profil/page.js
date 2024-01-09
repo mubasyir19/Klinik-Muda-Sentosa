@@ -22,7 +22,7 @@ export default function Profil() {
       <Components.Topmost />
       <Components.Navbar />
       <Components.Header withLink={false} headTitle='Profil'>
-        <span>
+        <span className='text-center'>
           <Link href='/'>Beranda</Link> / Profil
         </span>
       </Components.Header>
@@ -114,7 +114,7 @@ export default function Profil() {
               Dokter Kami
             </p>
           </div>
-          <div className='grid grid-cols-1 md:grid-cols-2 md:gap-x-10 place-items-center lg:px-48'>
+          <div className='grid grid-cols-1 md:grid-cols-2 md:gap-x-10 place-items-center xl:px-48'>
             <div className='card w-317 mt-10' style={workSans.style}>
               <div className='w-[317px] h-[350px] bg-slate-300 flex justify-center items-center'>
                 <h1 className='text-3xl'>Foto Dokter</h1>
