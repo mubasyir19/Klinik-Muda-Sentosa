@@ -43,7 +43,7 @@ export default function Home() {
       <section id='welcome' className='text-center px-4 mt-12' style={workSans.style}>
         <h2 className='text-sm text-secondary font-bold md:text-lg'>Selamat datang di Klinik Muda Sentosa</h2>
         <h1 className='text-2xl text-primary md:text-3xl' style={yesevaOne.style}>
-          Sehat Berkualitas Hidup Sejahtera
+          Kesehatan Berkualitas Hidup Sejahtera
         </h1>
         <p className='mt-2 mb-4 text-base lg:w-1/2 lg:mx-auto'>
           Klinik Muda Sentosa berintegrasi dan berfokus dalam memberikan pelayanan kesehatan, pengobatan dan pencegahan
@@ -96,7 +96,7 @@ export default function Home() {
                 alt='doctorss'
               />
             </SwiperSlide>
-            <SwiperSlide>
+            {/* <SwiperSlide>
               <Image
                 className='w-full h-72 object-cover'
                 src='/assets/images/cek-gigi2.jpg'
@@ -105,7 +105,7 @@ export default function Home() {
                 height={150}
                 alt='doctorss'
               />
-            </SwiperSlide>
+            </SwiperSlide> */}
             <SwiperSlide>
               <Image
                 className='w-full h-72 object-cover'

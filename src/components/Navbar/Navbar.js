@@ -25,12 +25,16 @@ export default function Navbar() {
     setIsSubMenuLayananOpen(!isSubMenuLayananOpen);
   };
 
-  const hoverLayananMouseEnter = () => {
-    setIsHoverSubMenuLayananOpen(true);
+  const changeSubMenuLayanan = () => {
+    setIsHoverSubMenuLayananOpen(!isHoverSubMenuLayananOpen);
   };
-  const hoverLayananMouseLeave = () => {
-    setIsHoverSubMenuLayananOpen(false);
-  };
+
+  // const hoverLayananMouseEnter = () => {
+  //   setIsHoverSubMenuLayananOpen(true);
+  // };
+  // const hoverLayananMouseLeave = () => {
+  //   setIsHoverSubMenuLayananOpen(false);
+  // };
 
   const handleScroll = () => {
     if (window.scrollY > 0) {
@@ -48,7 +52,6 @@ export default function Navbar() {
   }, []);
 
   return (
-    // <nav className='bg-dark-blue text-white' style={workSans.style}>
     <nav
       className={`bg-primary text-white md:px-4 lg:px-16 z-10 ${
         hasScrolled ? 'fixed top-0 left-0 right-0 md:px-16 transition-all bg-dark-blue' : 'transition-all'
@@ -64,22 +67,23 @@ export default function Navbar() {
             height={100}
             alt='logo'
           />
-          <Link href='/' className='my-auto text-base lg:text-2xl font-medium italic'>
+          <Link href='/' className='my-auto text-base xl:text-2xl font-medium italic'>
             Klinik <span className=' text-secondary'>Muda</span> Sentosa
           </Link>
         </div>
         <div className='hidden md:flex my-auto'>
-          <Link href='/' className='py-4 px-3 md:text-sm lg:text-lg hover:bg-secondary'>
+          <Link href='/' className='py-4 px-3 md:text-sm lg:text-base xl:text-lg hover:bg-secondary'>
             Beranda
           </Link>
-          <Link href='/profil' className='py-4 px-3 md:text-sm lg:text-lg hover:bg-secondary'>
+          <Link href='/profil' className='py-4 px-3 md:text-sm lg:text-base xl:text-lg hover:bg-secondary'>
             Profil
           </Link>
-          <Link
+          <button
             href='/layanan'
-            className='relative py-4 px-3 md:text-sm lg:text-lg flex gap-x-2 hover:bg-secondary'
-            onMouseEnter={hoverLayananMouseEnter}
-            onMouseLeave={hoverLayananMouseLeave}
+            className='relative py-4 px-3 md:text-sm lg:text-base xl:text-lg flex gap-x-2 hover:bg-secondary'
+            // onMouseEnter={hoverLayananMouseEnter}
+            // onMouseLeave={hoverLayananMouseLeave}
+            onClick={changeSubMenuLayanan}
           >
             Layanan
             <svg
@@ -93,7 +97,7 @@ export default function Navbar() {
               <path d='M0 0L5 5L10 0H0Z' fill='white' />
             </svg>
             {isHoverSubMenuLayananOpen && (
-              <ul className='absolute left-0 top-full md:w-32 lg:w-40 bg-primary border border-secondary'>
+              <ul className='absolute left-0 top-full text-left md:w-32 lg:w-40 bg-primary border border-secondary'>
                 <li className='py-2 px-3 hover:bg-secondary'>
                   <Link href='/layanan/dokter-gigi'>Dokter Gigi</Link>
                 </li>
@@ -102,17 +106,17 @@ export default function Navbar() {
                 </li>
               </ul>
             )}
-          </Link>
-          <Link href='/dokter' className='py-4 px-3 md:text-sm lg:text-lg hover:bg-secondary'>
+          </button>
+          <Link href='/dokter' className='py-4 px-3 md:text-sm lg:text-base xl:text-lg hover:bg-secondary'>
             Dokter
           </Link>
-          <Link href='/konsultasi' className='py-4 px-3 md:text-sm lg:text-lg hover:bg-secondary'>
+          <Link href='/konsultasi' className='py-4 px-3 md:text-sm lg:text-base xl:text-lg hover:bg-secondary'>
             Konsultasi
           </Link>
-          <Link href='/berita' className='py-4 px-3 md:text-sm lg:text-lg hover:bg-secondary'>
+          <Link href='/berita' className='py-4 px-3 md:text-sm lg:text-base xl:text-lg hover:bg-secondary'>
             Berita
           </Link>
-          <Link href='/kontak' className='py-4 px-3 md:text-sm lg:text-lg hover:bg-secondary'>
+          <Link href='/kontak' className='py-4 px-3 md:text-sm lg:text-base xl:text-lg hover:bg-secondary'>
             Kontak
           </Link>
         </div>

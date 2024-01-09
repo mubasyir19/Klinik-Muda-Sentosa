@@ -1,11 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import { Suspense, useCallback, useEffect, useState } from 'react';
-import { Components } from '@/components';
 import Link from 'next/link';
 import { Work_Sans } from 'next/font/google';
-import { getDataConsultation } from '@/services/data';
 import useSWR from 'swr';
 import { fetcherSWR } from '@/helper/fetcher';
 
@@ -21,9 +18,13 @@ export default function DataConsultation() {
   return (
     <div>
       {error ? (
-        'Terjadi Error'
+        <div className='flex justify-center my-4' style={workSans.style}>
+          <p className='text-2xl font-semibold'>Terjadi Error</p>
+        </div>
       ) : isLoading ? (
-        'Loading...'
+        <div className='flex justify-center my-4' style={workSans.style}>
+          <p className='text-2xl font-semibold'>Loading...</p>
+        </div>
       ) : data.length > 0 ? (
         <div>
           {data

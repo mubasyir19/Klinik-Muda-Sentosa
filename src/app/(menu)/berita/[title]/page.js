@@ -1,11 +1,12 @@
 'use client';
 
 import { Components } from '@/components';
+import { getDataArticle, getDataCategories } from '@/services/data';
 import { Work_Sans, Yeseva_One } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams, usePathname, useRouter, useSelectedLayoutSegment } from 'next/navigation';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const yesevaOne = Yeseva_One({
   weight: ['400'],
@@ -25,6 +26,45 @@ export default function ArtikelPage() {
   const decodeTitle = decodeURIComponent(paramsTitle).replace(/-/g, ' ');
   // console.log('params:', params);
   // console.log('params title:', params.title);
+
+  const [articles, setArticles] = useState([]);
+  const [categories, setCategories] = useState([]);
+
+  const getData = async () => {
+    try {
+      const articleData = await getDataArticle();
+      const categoryData = await getDataCategories();
+      setArticles(articleData);
+      setCategories(categoryData);
+    } catch (error) {
+      return (
+        <>
+          <p>Terjadi kesalahan</p>
+        </>
+      );
+      console.log('Error => ', error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+  // const articles = await getDataArticle();
+  // const categories = await getDataCategories();
+
+  function formatCreatedAt(createdAt) {
+    const date = new Date(createdAt);
+
+    const options = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    };
+
+    const formattedDate = new Intl.DateTimeFormat('id-ID', options).format(date);
+
+    return formattedDate;
+  }
 
   function toTitleCase(text) {
     return text
@@ -46,7 +86,7 @@ export default function ArtikelPage() {
         </span>
       </Components.Header>
       <main>
-        <section className='grid grid-cols-1 md:grid-cols-3 md:gap-x-6 lg:gap-x-20 md:px-6 lg:px-44'>
+        <section className='grid grid-cols-1 md:grid-cols-3 md:gap-x-6 lg:gap-x-20 md:px-6 xl:px-44'>
           <div className='left px-10 md:px-0 col-span-2'>
             <div className='news mt-10 place-self-center'>
               <Image
@@ -79,6 +119,104 @@ export default function ArtikelPage() {
             </div>
           </div>
           <div className='mt-10 md:mt-0 px-4 md:px-0'>
+            <div className='w-full py-3.5 px-5 mt-2 md:mt-10 mx-auto bg-primary text-pasty-blue flex justify-between gap-x-6 rounded'>
+              <input
+                className='md:w-full bg-primary text-pasty-blue no-focus-outline my-auto'
+                type='text'
+                placeholder='Search'
+                style={workSans.style}
+              />
+              <svg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <path
+                  d='M9.88894 18.7779C14.7982 18.7779 18.7779 14.7982 18.7779 9.88894C18.7779 4.97971 14.7982 1 9.88894 1C4.97971 1 1 4.97971 1 9.88894C1 14.7982 4.97971 18.7779 9.88894 18.7779Z'
+                  stroke='#82D0D5'
+                  strokeWidth='2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                />
+                <path
+                  d='M21.0001 21.0001L16.1667 16.1667'
+                  stroke='#BFD2F8'
+                  strokeWidth='2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                />
+              </svg>
+            </div>
+            <div className='mt-4 px-4 border-2 border-slate-300'>
+              <h3 className='mt-4 text-center lg:text-start text-xl lg:text-3xl' style={yesevaOne.style}>
+                Recent Posts
+              </h3>
+              <div className='mb-6'>
+                {articles.slice(0, 2).map((article) => (
+                  <div key={article.id} className='card-news mt-6 flex md:block lg:flex gap-x-2.5'>
+                    <Image
+                      className='rounded-md h-20 w-20 my-auto'
+                      src={'/assets/images/doctor3.png'}
+                      width={60}
+                      height={60}
+                      // sizes=''
+                      alt='image-post'
+                    />
+                    <div className='mt-2 lg:my-auto' style={workSans.style}>
+                      <p className='text-secondary text-xs md:text-sm'>{formatCreatedAt(article.createdAt)}</p>
+                      <p className='mt-1 text-sm md:text-base font-semibold'>{article.title}</p>
+                    </div>
+                  </div>
+                ))}
+                {/* <div className='card-news mt-6 flex md:block lg:flex gap-x-2.5'>
+                  <Image
+                    className='rounded-md h-20 w-20 my-auto lg:hidden xl:block'
+                    src={'/assets/images/doctor3.png'}
+                    width={60}
+                    height={60}
+                    // sizes=''
+                    alt='image-post'
+                  />
+                  <div className='mt-2 lg:my-auto' style={workSans.style}>
+                    <p className='text-secondary text-xs md:text-sm'>Senin, 5 September 2023</p>
+                    <p className='mt-1 text-sm md:text-base font-semibold'>
+                      This Article&apos;s Title goes Here, but not too long.
+                    </p>
+                  </div>
+                </div> */}
+              </div>
+            </div>
+            <div className='mt-4 px-4 border-2 border-slate-300 rounded-md'>
+              <h3 className='mt-4 text-center text-primary lg:text-start text-xl lg:text-3xl' style={yesevaOne.style}>
+                Kategori
+              </h3>
+              <div className='my-6' style={workSans.style}>
+                {categories.map((category) => (
+                  <div key={category.id} className='w-full py-2'>
+                    <Link href='#' className='flex justify-between cursor-pointer'>
+                      <span className='my-auto text-base lg:text-lg'>{category.name}</span>
+                      <span className='py-1 px-3 my-auto text-sm lg:text-base text-white bg-secondary rounded-full'>
+                        {categories.length}
+                      </span>
+                    </Link>
+                  </div>
+                ))}
+                {/* <div className='w-full px-4 py-2'>
+                  <Link href='#' className='flex justify-between cursor-pointer'>
+                    <span className='my-auto text-base lg:text-lg'>Artikel</span>
+                    <span className='py-1 px-3 my-auto text-sm lg:text-base text-white bg-secondary rounded-full'>
+                      13
+                    </span>
+                  </Link>
+                </div>
+                <div className='w-full px-4 py-2'>
+                  <Link href='#' className='flex justify-between cursor-pointer'>
+                    <span className='my-auto text-base lg:text-lg'>Health Care</span>
+                    <span className='py-1 px-3 my-auto text-sm lg:text-base text-white bg-secondary rounded-full'>
+                      3
+                    </span>
+                  </Link>
+                </div> */}
+              </div>
+            </div>
+          </div>
+          {/* <div className='mt-10 md:mt-0 px-4 md:px-0'>
             <div className='w-full py-3.5 px-5 mt-2 md:mt-10 mx-auto bg-dark-blue text-pasty-blue flex justify-between gap-x-6 rounded'>
               <input
                 className='md:w-full bg-dark-blue text-pasty-blue no-focus-outline my-auto'
@@ -150,7 +288,7 @@ export default function ArtikelPage() {
                 <div className='w-full px-4 py-2 bg-dark-blue text-pasty-blue rounded-md'>
                   <Link href='#' className='flex justify-between cursor-pointer'>
                     <span className='my-auto text-base lg:text-lg'>Event</span>
-                    <span className='py-1 px-3 my-auto text-sm lg:text-base text-white bg-light-blue rounded-full'>
+                    <span className='py-1 px-3 my-auto text-sm lg:text-base text-white bg-secondary rounded-full'>
                       5
                     </span>
                   </Link>
@@ -158,7 +296,7 @@ export default function ArtikelPage() {
                 <div className='w-full px-4 py-2'>
                   <Link href='#' className='flex justify-between cursor-pointer'>
                     <span className='my-auto text-base lg:text-lg'>Artikel</span>
-                    <span className='py-1 px-3 my-auto text-sm lg:text-base text-white bg-light-blue rounded-full'>
+                    <span className='py-1 px-3 my-auto text-sm lg:text-base text-white bg-secondary rounded-full'>
                       13
                     </span>
                   </Link>
@@ -166,14 +304,14 @@ export default function ArtikelPage() {
                 <div className='w-full px-4 py-2'>
                   <Link href='#' className='flex justify-between cursor-pointer'>
                     <span className='my-auto text-base lg:text-lg'>Health Care</span>
-                    <span className='py-1 px-3 my-auto text-sm lg:text-base text-white bg-light-blue rounded-full'>
+                    <span className='py-1 px-3 my-auto text-sm lg:text-base text-white bg-secondary rounded-full'>
                       3
                     </span>
                   </Link>
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </section>
       </main>
       <Components.GetInTouch />

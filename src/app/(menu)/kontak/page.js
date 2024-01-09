@@ -39,7 +39,7 @@ export default function Kontak() {
             referrerPolicy='no-referrer-when-downgrade'
           ></iframe>
         </section>
-        <section className='px-10 lg:px-44 grid grid-cols-1 md:grid-cols-2 md:gap-x-6 lg:gap-x-8 lg:items-center'>
+        <section className='px-10 xl:px-44 grid grid-cols-1 md:grid-cols-2 md:gap-x-6 lg:gap-x-10 lg:items-center'>
           <div className='left'>
             <div className='text-center md:text-left'>
               <p className='uppercase text-secondary text-lg' style={workSans.style}>
@@ -89,8 +89,8 @@ export default function Kontak() {
               </form>
             </div>
           </div>
-          <div className='right mt-12 grid grid-cols-1 gap-y-4 lg:grid-cols-2 lg:gap-x-4 lg:place-items-center'>
-            <div className='py-7 w-full lg:w-60 lg:p-7 bg-accent hover:bg-primary hover:text-accent rounded-md'>
+          <div className='right mt-12 grid grid-cols-1 gap-y-4 lg:grid-cols-2 lg:gap-x-14 xl:gap-x-4 lg:place-items-center'>
+            <div className='py-7 w-full lg:w-60 xl:p-7 bg-accent hover:bg-primary hover:text-accent rounded-md'>
               <svg
                 className='mx-auto hover:text-accent'
                 width='41'
@@ -120,7 +120,7 @@ export default function Kontak() {
                 <p>(237) 666-331-894</p>
               </div>
             </div>
-            <div className='py-7 w-full lg:w-60 lg:p-7 bg-accent hover:bg-primary hover:text-accent rounded-md'>
+            <div className='py-7 w-full lg:w-60 xl:p-7 bg-accent hover:bg-primary hover:text-accent rounded-md'>
               <svg
                 className='mx-auto'
                 width='39'
@@ -146,7 +146,7 @@ export default function Kontak() {
                 <p>Bogor</p>
               </div>
             </div>
-            <div className='py-7 w-full lg:w-60 lg:p-7 bg-accent hover:bg-primary hover:text-accent rounded-md'>
+            <div className='py-7 w-full lg:w-60 xl:p-7 bg-accent hover:bg-primary hover:text-accent rounded-md'>
               <svg
                 className='mx-auto '
                 width='39'
@@ -176,7 +176,7 @@ export default function Kontak() {
                 <p>myebstudios@gmail.com</p>
               </div>
             </div>
-            <div className='py-7 w-full lg:w-60 lg:p-7 bg-accent hover:bg-primary hover:text-accent rounded-md'>
+            <div className='py-7 w-full lg:w-60 xl:p-7 bg-accent hover:bg-primary hover:text-accent rounded-md'>
               <svg
                 className='mx-auto'
                 width='33'
